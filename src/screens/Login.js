@@ -1,7 +1,9 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { EvilIcons } from '@expo/vector-icons';
-const Login = () => {
+import Signup from "./Signup";
+
+const Login = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Sign in</Text>
@@ -23,7 +25,13 @@ const Login = () => {
                 <TouchableOpacity style={styles.signUpSocial}>
                     <Text>Login with Facebook</Text>
                 </TouchableOpacity>
-                <Text>Don't have an account? Signup</Text>
+                <Text>Don't have an account? 
+                    <TouchableOpacity onPress={
+                        () => navigation.navigate('Signup')
+                    }>
+                        <Text style={{color: '#FABB18'}}>Signup</Text>
+                    </TouchableOpacity>
+                </Text>
             </View>
         </View>
     );
